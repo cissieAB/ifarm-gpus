@@ -1,8 +1,6 @@
 # The Performance of the JLab ifarm GPUs
 
-A quick view of the ifarm GPUs.
 
-![img](./docs/roofline.png)
 
 | GPU Product                               |   Tesla T4 |   Titan RTX | A100_PCIe |
 |:------------------------------------------|-----------:|------------:|----------:|
@@ -20,6 +18,11 @@ A quick view of the ifarm GPUs.
 | Measured L2 bandwidth (GB/s)              |    12866.6 |     22774.0 |   14970.5 |	
 | L1 cache size (Kilibyte) per SM           |         64 |          64 |       164 |
 | Measured L1 bandwidth (GB/s)              |     4051.9 |      8124.2 |   18843.7 |
+
+
+A quick roofline view of the ifarm GPUs.
+
+![img](./docs/roofline.png)
 
 ## Other docs
 * Benchmarking results from the CUDA samples: https://github.com/cissieAB/ifarm-gpus/tree/master/res
