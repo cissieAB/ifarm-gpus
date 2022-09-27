@@ -26,7 +26,7 @@ A quick roofline view of the ifarm GPUs (the L1/L2 BW numbers might be updated i
 
 
 ## Other docs
-* Benchmarking results from the CUDA samples: https://github.com/cissieAB/ifarm-gpus/tree/master/res
+* Benchmarking results from the [CUDA samples](https://github.com/NVIDIA/cuda-samples): https://github.com/cissieAB/ifarm-gpus/tree/master/res
 
 
 - [ ] Guide to get the hardware limit of the GPUs
