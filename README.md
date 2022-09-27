@@ -1,4 +1,4 @@
-# The Performance of the JLab ifarm GPUs
+# The Performance of the JLab `ifarm` GPUs
 
 
 
@@ -20,9 +20,10 @@
 | Measured L1 bandwidth (GB/s)              |     4051.9 |      8124.2 |   18843.7 |
 
 
-A quick roofline view of the ifarm GPUs.
+A quick roofline view of the ifarm GPUs (the L1/L2 BW numbers might be updated in the future).
 
 ![img](./docs/roofline.png)
+
 
 ## Other docs
 * Benchmarking results from the CUDA samples: https://github.com/cissieAB/ifarm-gpus/tree/master/res
