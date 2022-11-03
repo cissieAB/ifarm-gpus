@@ -12,7 +12,7 @@ from collections import OrderedDict
 import torch
 import torch.nn as nn
 
-CSV_HEADER_STR = "device, input_type, layers, nodes, batch_size, input_size, output_size, #params, duration, tflops"
+CSV_HEADER_STR = "device,input_type,layers,nodes,batch_size,input_size,output_size,#params,duration,tflops"
 
 
 # the ParaDnn Optimizer configuration
