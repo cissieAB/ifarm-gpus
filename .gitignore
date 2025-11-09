@@ -1,8 +1,11 @@
 
 .idea/
+<<<<<<< HEAD
 .ipynb_checkpoints
 
 *.ipynb
 *.csv
 fc_*
 output_*
+=======
+>>>>>>> d98f284 (Some cleanup)
