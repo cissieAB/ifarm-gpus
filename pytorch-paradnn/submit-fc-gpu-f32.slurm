@@ -34,8 +34,7 @@ srun python3 fc.py --use_gpu=${use_gpu} --input_type=${data_type}
 # for layers in 4 8 16 32 64 128
 for layers in 4
 do
-#  for nodes in 32 64 128 256  512 1024 2048 4096 8192
-  for nodes in 32
+for nodes in 32 64 128 256  512 1024 2048 4096 8192
   do
     name=benchmark_l_${layers}_n_${nodes}_${data_type}_${platform}
     srun python3 fc.py -b --layers=${layers} --nodes=${nodes} --use_gpu=${use_gpu} --input_type=${data_type}\
