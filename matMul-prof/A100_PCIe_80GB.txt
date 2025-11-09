@@ -1,0 +1,72 @@
+GPU: NVIDIA A100 80GB PCIe
+Compute Capability:       8.0
+Supports TF32: True
+
+Running with TF32 enabled:
+
+
+=== Testing dtype: torch.float32 ===
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                    matrix_multiplication_torch.float32         0.17%     123.759us         2.08%       1.547ms       1.547ms       0.000us         0.00%     146.143ms     146.143ms             1  
+                                           aten::matmul         0.01%      10.470us         1.91%       1.423ms       1.423ms       0.000us         0.00%     146.143ms     146.143ms             1  
+                                               aten::mm         0.23%     172.689us         1.90%       1.413ms       1.413ms      73.072ms       100.00%     146.143ms     146.143ms             1  
+                    matrix_multiplication_torch.float32         0.00%       0.000us         0.00%       0.000us       0.000us      73.078ms       100.01%      73.078ms      73.078ms             1  
+                                Activity Buffer Request         1.26%     936.706us         1.26%     936.706us     936.706us      73.072ms       100.00%      73.072ms      73.072ms             1  
+void cutlass::Kernel2<cutlass_80_tensorop_s1688gemm_...         0.00%       0.000us         0.00%       0.000us       0.000us      73.069ms       100.00%      73.069ms      73.069ms             1  
+                                        Memset (Device)         0.00%       0.000us         0.00%       0.000us       0.000us       2.560us         0.00%       2.560us       2.560us             1  
+                                  cudaStreamIsCapturing         0.01%       8.990us         0.01%       8.990us       8.990us       0.000us         0.00%       0.000us       0.000us             1  
+                                             cudaMalloc         0.34%     252.119us         0.34%     252.119us     252.119us       0.000us         0.00%       0.000us       0.000us             1  
+                                 cudaDeviceGetAttribute         0.00%       2.150us         0.00%       2.150us       2.150us       0.000us         0.00%       0.000us       0.000us             1  
+                                        cudaMemsetAsync         0.04%      29.710us         0.04%      29.710us      29.710us       0.000us         0.00%       0.000us       0.000us             1  
+                                         cuLaunchKernel         0.01%      10.530us         0.01%      10.530us      10.530us       0.000us         0.00%       0.000us       0.000us             1  
+                                  cudaDeviceSynchronize        97.92%      72.929ms        97.92%      72.929ms      36.465ms       0.000us         0.00%       0.000us       0.000us             2  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 74.476ms
+Self CUDA time total: 73.072ms
+
+
+
+
+
+=== Testing dtype: torch.float16 ===
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                    matrix_multiplication_torch.float16         0.46%     177.380us         3.42%       1.309ms       1.309ms       0.000us         0.00%      74.343ms      74.343ms             1  
+                                           aten::matmul         0.02%       8.870us         2.95%       1.132ms       1.132ms       0.000us         0.00%      74.343ms      74.343ms             1  
+                                               aten::mm         0.27%     103.360us         2.93%       1.123ms       1.123ms      37.171ms       100.00%      74.343ms      74.343ms             1  
+                                Activity Buffer Request         2.53%     969.065us         2.53%     969.065us     969.065us      37.171ms       100.00%      37.171ms      37.171ms             1  
+void cutlass::Kernel2<cutlass_80_tensorop_f16_s16816...         0.00%       0.000us         0.00%       0.000us       0.000us      37.171ms       100.00%      37.171ms      37.171ms             1  
+                    matrix_multiplication_torch.float16         0.00%       0.000us         0.00%       0.000us       0.000us      37.171ms       100.00%      37.171ms      37.171ms             1  
+                                 cudaDeviceGetAttribute         0.00%       1.700us         0.00%       1.700us       1.700us       0.000us         0.00%       0.000us       0.000us             1  
+                                         cuLaunchKernel         0.13%      48.600us         0.13%      48.600us      48.600us       0.000us         0.00%       0.000us       0.000us             1  
+                                  cudaDeviceSynchronize        96.58%      37.014ms        96.58%      37.014ms      18.507ms       0.000us         0.00%       0.000us       0.000us             2  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 38.323ms
+Self CUDA time total: 37.171ms
+
+
+
+
+
+=== Testing dtype: torch.bfloat16 ===
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                   matrix_multiplication_torch.bfloat16         0.56%     204.778us         3.53%       1.296ms       1.296ms       0.000us         0.00%      71.328ms      71.328ms             1  
+                                           aten::matmul         0.02%       7.450us         2.97%       1.091ms       1.091ms       0.000us         0.00%      71.328ms      71.328ms             1  
+                                               aten::mm         0.24%      87.830us         2.95%       1.083ms       1.083ms      35.664ms       100.00%      71.328ms      71.328ms             1  
+                                Activity Buffer Request         2.64%     970.366us         2.64%     970.366us     970.366us      35.664ms       100.00%      35.664ms      35.664ms             1  
+ampere_bf16_s16816gemm_bf16_256x128_ldg8_f2f_stages_...         0.00%       0.000us         0.00%       0.000us       0.000us      35.664ms       100.00%      35.664ms      35.664ms             1  
+                   matrix_multiplication_torch.bfloat16         0.00%       0.000us         0.00%       0.000us       0.000us      35.664ms       100.00%      35.664ms      35.664ms             1  
+          cudaOccupancyMaxActiveBlocksPerMultiprocessor         0.01%       2.790us         0.01%       2.790us       2.790us       0.000us         0.00%       0.000us       0.000us             1  
+                                       cudaLaunchKernel         0.06%      22.430us         0.06%      22.430us      22.430us       0.000us         0.00%       0.000us       0.000us             1  
+                                  cudaDeviceSynchronize        96.47%      35.455ms        96.47%      35.455ms      17.728ms       0.000us         0.00%       0.000us       0.000us             2  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 36.751ms
+Self CUDA time total: 35.664ms
+
+
+
