@@ -1,6 +1,7 @@
 
 .idea/
 <<<<<<< HEAD
+<<<<<<< HEAD
 .ipynb_checkpoints
 
 *.ipynb
@@ -9,3 +10,9 @@ fc_*
 output_*
 =======
 >>>>>>> d98f284 (Some cleanup)
+=======
+.ipynb_checkpoints
+
+*.ipynb
+*.csv  # TODO: tmp
+>>>>>>> 1a75dbd (Add pytorch-fc code and slurm scripts)

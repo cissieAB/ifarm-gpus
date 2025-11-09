@@ -1,5 +1,7 @@
 """
 Plot the roofline ridges (peak throughput, and peak L1/L2/HBM BW).
+
+TODO: better organization of the plots
 """
 
 import numpy as np
